@@ -64,14 +64,14 @@ module SMA_engine #(
     overflow  = 0;
 
     if (l_size == 0) begin
-	   if (increment < 0) begin underflow = 1; end
-		if (increment > 0) begin overflow = 1; end
-		sma_address = ptr;
-	 end
-	 else begin
-	   sma_address = ptr_increment;
+      if (increment < 0) begin underflow = 1; end
+      if (increment > 0) begin overflow = 1; end
+      sma_address = ptr;
+    end
+    else begin
+      sma_address = ptr_increment;
 		
-	   if (ptr_increment < ptr_lower_bound) begin
+      if (ptr_increment < ptr_lower_bound) begin
         underflow = 1;
         sma_address = ptr_lower_bound;
       end
@@ -82,5 +82,4 @@ module SMA_engine #(
       end
     end
   end
-endmodule
 endmodule
